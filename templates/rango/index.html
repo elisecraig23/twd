@@ -15,7 +15,9 @@
 			hey there partner!
 		{% endif %}
 	</div>
-
+	<div> 
+		<p> Number of visits: {{ visits }}</p>
+	</div>
 	<div>
 		<h2>Most Liked Categories</h2>
 
@@ -55,10 +57,6 @@
 		<div>
 			<img src="{% static "images/rango.jpg" %}" 
 				alt="Picture of Rango" /> 
-		</div>
-
-		<div> 
-			<p> visits: {{ visits }}</p>
 		</div>
 
 {% endblock %}

@@ -21,7 +21,7 @@ def index(request):
 	context_dict['visits'] = request.session['visits']
 
 	# Obtain our response object early so we can add cookie information.
-	return render(request, 'rango/index.html', context=context_dict)
+	response = render(request, 'rango/index.html', context=context_dict)
 	# Return response back to the user, updating any cookies that need changed.
 	return response
 
@@ -29,8 +29,13 @@ def about(request):
 	if request.session.test_cookie_worked():
 		print("TEST COOKIE WORKED!")
 		request.session.delete_test_cookie()
+
 	context_dict = {}
-	return render( request, 'rango/about.html', context=context_dict)
+
+	visitor_cookie_handler(request)
+	context_dict['visits'] = request.session['visits']
+	
+	return render(request, 'rango/about.html', context=context_dict)
 
 def show_category(request, category_name_slug):
 	context_dict = {}
