@@ -35,7 +35,8 @@ def about(request):
 	visitor_cookie_handler(request)
 	context_dict['visits'] = request.session['visits']
 	
-	return render(request, 'rango/about.html', context=context_dict)
+	return HttpResponse("Rango says here is the about page. <a href='/rango/'>View index page</a>
+	# return render(request, 'rango/about.html', context=context_dict)
 
 def show_category(request, category_name_slug):
 	context_dict = {}
